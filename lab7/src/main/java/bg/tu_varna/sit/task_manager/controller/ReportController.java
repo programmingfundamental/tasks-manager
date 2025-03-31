@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/reports")
 public class ReportController {
     @PostMapping("/{task-id}")
-    public ResponseEntity<List<ReportResponseDto>> create(@PathVariable(name = "task-id") long taskId) {
+    public ResponseEntity<List<ReportResponseDto>> create(@PathVariable(name = "task-id") long taskId, @RequestBody ReportRequestDto dto) {
         return ResponseEntity.ok(new ArrayList<>());
     }
     @GetMapping("/{task-id}")

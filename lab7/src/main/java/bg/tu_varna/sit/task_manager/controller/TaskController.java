@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/tasks")
 public class TaskController {
     @PostMapping()
-    public ResponseEntity<TaskResponseDto> create() {
+    public ResponseEntity<TaskResponseDto> create(@RequestBody TaskRequestDto dto) {
         return ResponseEntity.ok(new TaskResponseDto());
     }
     @GetMapping()
