@@ -1,9 +1,8 @@
 package bg.tu_varna.sit.task_manager.controller;
 
+import bg.tu_varna.sit.task_manager.exception.ResourceNotFoundException;
 import bg.tu_varna.sit.task_manager.model.dto.request.ReportRequestDto;
 import bg.tu_varna.sit.task_manager.model.dto.response.ReportResponseDto;
-import bg.tu_varna.sit.task_manager.model.dto.response.TaskResponseDto;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +17,8 @@ import java.util.List;
 @RequestMapping("/reports")
 public class ReportController {
     @PostMapping("/{task-id}")
-    public ResponseEntity<ReportResponseDto> create(@PathVariable(name = "task-id") long taskId, @RequestBody ReportRequestDto dto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(new ReportResponseDto());
+    public ResponseEntity<List<ReportResponseDto>> create(@PathVariable(name = "task-id") long taskId) {
+        return ResponseEntity.ok(new ArrayList<>());
     }
     @GetMapping("/{task-id}")
     public ResponseEntity<List<ReportResponseDto>> getAllByTask(@PathVariable(name = "task-id") long taskId) {

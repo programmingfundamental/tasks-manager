@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 /***
  * Добавено в лабораторно упражнение 7
@@ -13,5 +12,7 @@ import java.time.LocalTime;
 @Getter
 public class ReportRequestDto {
     private String content;
-    private LocalTime workTime;
+    private int hoursWorked;
+    private LocalDateTime dateCreated;
+    private LocalDateTime dateUpdated;
 }
