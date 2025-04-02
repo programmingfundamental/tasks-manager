@@ -17,12 +17,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/reports")
 public class ReportController {
-    @PostMapping("/{task-id}")
-    public ResponseEntity<ReportResponseDto> create(@PathVariable(name = "task-id") long taskId, @RequestBody ReportRequestDto dto) {
+    @PostMapping("/task/{id}")
+    public ResponseEntity<ReportResponseDto> create(@PathVariable(name = "id") long taskId, @RequestBody ReportRequestDto dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(new ReportResponseDto());
     }
-    @GetMapping("/{task-id}")
-    public ResponseEntity<List<ReportResponseDto>> getAllByTask(@PathVariable(name = "task-id") long taskId) {
+    @GetMapping("/task/{id}")
+    public ResponseEntity<List<ReportResponseDto>> getAllByTask(@PathVariable(name = "id") long taskId) {
         return ResponseEntity.ok(new ArrayList<>());
     }
     @GetMapping("/{id}")
@@ -33,8 +33,8 @@ public class ReportController {
     public ResponseEntity<List<ReportResponseDto>> getByHoursWorkedFromDateCreatedToDateUpdated(@RequestParam Long hoursWorked, @RequestParam LocalDateTime dateCreated, @RequestParam LocalDateTime dateUpdated) {
         return ResponseEntity.ok(new ArrayList<>());
     }
-    @GetMapping("/{task-id}/max-hours-worked")
-    public ResponseEntity<List<ReportResponseDto>> getByTaskWithMaxHoursWorked(@PathVariable(name = "task-id") long taskId) {
+    @GetMapping("/task/{id}/max-hours-worked")
+    public ResponseEntity<List<ReportResponseDto>> getByTaskWithMaxHoursWorked(@PathVariable(name = "id") long taskId) {
         return ResponseEntity.ok(new ArrayList<>());
     }
     @PutMapping("/{id}/update")
