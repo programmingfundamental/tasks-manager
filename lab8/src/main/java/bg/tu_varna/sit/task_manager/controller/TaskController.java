@@ -23,22 +23,22 @@ public class TaskController {
     }
     @GetMapping()
     public ResponseEntity<List<TaskResponseDto>> getAll() throws ResourceNotFoundException {
-        //throw new ResourceNotFoundException(0, TaskResponseDto.class);  //Добавено в лабораторно упражнение 8
-        return ResponseEntity.ok(new ArrayList<>());
+        throw new ResourceNotFoundException(0, TaskResponseDto.class);  //Добавено в лабораторно упражнение 8
+        //return ResponseEntity.ok(new ArrayList<>());
     }
     @GetMapping("/{id}")
     public ResponseEntity<TaskResponseDto> get(@Valid @PathVariable Long id) throws ResourceNotFoundException {
-        //throw new ResourceNotFoundException(id, TaskResponseDto.class);  //Добавено в лабораторно упражнение 8
-        return ResponseEntity.ok(new TaskResponseDto());
+        throw new ResourceNotFoundException(id, TaskResponseDto.class);  //Добавено в лабораторно упражнение 8
+        //return ResponseEntity.ok(new TaskResponseDto());
     }
     @PutMapping("/{id}/update")
     public ResponseEntity<TaskResponseDto> update(@PathVariable Long id,@Valid  @RequestBody TaskRequestDto dto) throws ResourceNotFoundException {
-        //throw new ResourceNotFoundException(id, TaskResponseDto.class);  //Добавено в лабораторно упражнение 8
-        return ResponseEntity.ok(new TaskResponseDto());
+        throw new ResourceNotFoundException(id, TaskResponseDto.class);  //Добавено в лабораторно упражнение 8
+        //return ResponseEntity.ok(new TaskResponseDto());
     }
     @DeleteMapping("/{id}/delete")
     public ResponseEntity<TaskResponseDto> delete(@Valid @PathVariable Long id) throws ResourceNotFoundException {
-        //throw new ResourceNotFoundException(id, TaskResponseDto.class);  //Добавено в лабораторно упражнение 8
-        return ResponseEntity.ok(new TaskResponseDto());
+        throw new ResourceNotFoundException(id, TaskResponseDto.class);  //Добавено в лабораторно упражнение 8
+        //return ResponseEntity.ok(new TaskResponseDto());
     }
 }
