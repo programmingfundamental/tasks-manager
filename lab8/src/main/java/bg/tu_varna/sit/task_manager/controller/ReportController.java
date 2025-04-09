@@ -38,7 +38,7 @@ public class ReportController {
         //return ResponseEntity.ok(new ReportResponseDto());
     }
     @GetMapping()
-    public ResponseEntity<List<ReportResponseDto>> getByHoursWorkedFromDateCreatedToDateUpdated(
+    public ResponseEntity<List<ReportResponseDto>> getByWorkTimeInDateInterval(
             @Valid @ModelAttribute FilterReportDto filter //Добавено в лабораторно упражнение 8
     ) throws ResourceNotFoundException {
         throw new ResourceNotFoundException(0, TaskResponseDto.class);  //Добавено в лабораторно упражнение 8

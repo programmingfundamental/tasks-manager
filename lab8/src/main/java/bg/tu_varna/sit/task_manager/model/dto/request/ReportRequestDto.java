@@ -17,11 +17,11 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Getter
 public class ReportRequestDto {
-    @NotBlank(message = "Съдържанието не може да бъде празно") //Добавено в лабораторно упражнение 8
-    @Size(min = 10, max = 2500, message = "Съдържанието трябва да е поне 10 символа и да не е повече от 2500") //Добавено в лабораторно упражнение 8
+    @NotBlank(message = "Content is required") //Добавено в лабораторно упражнение 8
+    @Size(min = 10, max = 2500, message = "Content must be at least 10 characters and no more than 2500") //Добавено в лабораторно упражнение 8
     private String content;
 
-    @NotNull(message = "Работното време е задължително") //Добавено в лабораторно упражнение 8
+    @NotNull(message = "WorkTime is required") //Добавено в лабораторно упражнение 8
     @AfterMidnight //Добавено в лабораторно упражнение 8
     private LocalTime workTime;
 }
