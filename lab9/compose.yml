@@ -1,0 +1,28 @@
+# Добавено в лабораторно упражнение 9
+networks:
+  jedi:
+
+services:
+  # Добавено в лабораторно упражнение 7
+  app:
+    container_name: padawan-6156-app
+    platform: linux/x86_64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 9000:9000
+    networks: # Добавено в лабораторно упражнение 9
+      - jedi
+  # Добавено в лабораторно упражнение 9
+  db:
+    container_name: padawan-6156-db
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: R2D2c3p0
+      POSTGRES_USER: padawan
+      POSTGRES_DB: tasks
+    networks:
+      - jedi
