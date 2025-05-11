@@ -22,6 +22,9 @@ import java.lang.reflect.Type;
 import java.time.LocalTime;
 import java.util.List;
 
+/***
+ * Добавено в лабораторно упражнение 10
+ */
 @Service
 public class ReportServiceImp {
     private ReportRepository repository;

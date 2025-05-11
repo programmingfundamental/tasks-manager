@@ -59,8 +59,8 @@ public class ReportController {
 
     @GetMapping("/task/{taskId}/summary")
     public ResponseEntity<TaskReportResponse> getTaskSummaryWithWorkedTime(@PathVariable Long taskId) throws ResourceNotFoundException {
-        TaskReportResponse response = service.getTaskWithTotalWorkedTime(taskId);
-        return ResponseEntity.ok(response);
+        TaskReportResponse response = service.getTaskWithTotalWorkedTime(taskId);//Добавено в лабораторно упражнение 10
+        return ResponseEntity.ok(response);//Добавено в лабораторно упражнение 10
     }
 
     @PutMapping("/{id}/update")
