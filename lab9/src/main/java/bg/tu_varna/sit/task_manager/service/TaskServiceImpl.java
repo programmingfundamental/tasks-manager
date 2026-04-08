@@ -18,11 +18,11 @@ import java.util.List;
  * Добавено в лабораторно упражнение 9
  */
 @Service
-public class TaskServiceImp implements TaskService {
-    private TaskRepository repository;
-    private ModelMapper mapper;
+public class TaskServiceImpl implements TaskService {
+    private final TaskRepository repository;
+    private final ModelMapper mapper;
 
-    public TaskServiceImp(TaskRepository repository, ModelMapper mapper) {
+    public TaskServiceImpl(TaskRepository repository, ModelMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }
