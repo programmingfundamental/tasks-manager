@@ -29,14 +29,6 @@ public class ReportController {
     public ResponseEntity<ReportResponseDto> get(@PathVariable Long id) {
         return ResponseEntity.ok(new ReportResponseDto());
     }
-    @GetMapping()
-    public ResponseEntity<List<ReportResponseDto>> getByHoursWorkedFromDateCreatedToDateUpdated(@RequestParam Long hoursWorked, @RequestParam LocalDateTime dateCreated, @RequestParam LocalDateTime dateUpdated) {
-        return ResponseEntity.ok(new ArrayList<>());
-    }
-    @GetMapping("/task/{id}/max-hours-worked")
-    public ResponseEntity<List<ReportResponseDto>> getByTaskWithMaxHoursWorked(@PathVariable(name = "id") long taskId) {
-        return ResponseEntity.ok(new ArrayList<>());
-    }
     @PutMapping("/{id}/update")
     public ResponseEntity<ReportResponseDto> update(@PathVariable Long id, @RequestBody ReportRequestDto dto) {
         return ResponseEntity.ok(new ReportResponseDto());
