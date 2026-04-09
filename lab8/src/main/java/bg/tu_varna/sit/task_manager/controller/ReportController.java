@@ -38,16 +38,10 @@ public class ReportController {
         //return ResponseEntity.ok(new ReportResponseDto());
     }
     @GetMapping()
-    public ResponseEntity<List<ReportResponseDto>> getByWorkTimeInDateInterval(
+    public ResponseEntity<List<ReportResponseDto>> getWorkTimeInDateInterval(
             @Valid @ModelAttribute FilterReportDto filter //Добавено в лабораторно упражнение 8
     ) throws ResourceNotFoundException {
         throw new ResourceNotFoundException(0, TaskResponseDto.class);  //Добавено в лабораторно упражнение 8
-        //return ResponseEntity.ok(new ArrayList<>());
-    }
-
-    @GetMapping("/task/{id}/max-hours-worked")
-    public ResponseEntity<List<ReportResponseDto>> getByTaskWithMaxHoursWorked(@PathVariable(name = "id") long taskId) throws ResourceNotFoundException {
-        throw new ResourceNotFoundException(taskId, TaskResponseDto.class);  //Добавено в лабораторно упражнение 8
         //return ResponseEntity.ok(new ArrayList<>());
     }
     @PutMapping("/{id}/update")
