@@ -3,6 +3,8 @@ package bg.tu_varna.sit.task_manager.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.Instant;
+
 /***
  * Добавено в лабораторно упражнение 11
  */
@@ -12,22 +14,24 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "refresh_tokens")
+public class RefreshToken {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 500)
+    private String token;
+
+    @Column(nullable = false)
     private String username;
 
     @Column(nullable = false)
-    private String password;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Role role;
+    private Instant createdAt;
 
     @Column(nullable = false)
-    private boolean enabled;
+    private Instant expiryDate;
+
+    @Column(nullable = false)
+    private boolean revoked;
 }

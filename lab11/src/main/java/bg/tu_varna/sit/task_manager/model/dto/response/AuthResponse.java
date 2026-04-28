@@ -1,16 +1,18 @@
 package bg.tu_varna.sit.task_manager.model.dto.response;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
+/***
  * Добавено в лабораторно упражнение 11
  */
-@Setter
 @Getter
-public class UserResponseDto {
-    private long id;
-    private String name;
+@Setter
+@AllArgsConstructor
+public class AuthResponse {
+    private String accessToken;
+    private String refreshToken;
     private String username;
-    private String token;
+    private long expiresAt;
 }
