@@ -54,12 +54,12 @@ public class AuthService {
             String newAccessToken = jwtService.generateAccessToken(currentAuth);
             RefreshToken refreshToken = refreshTokenService.createRefreshToken(currentAuth.getName());
 
-            return new AuthResponse(
-                    newAccessToken,
-                    refreshToken.getToken(),
-                    currentAuth.getName(),
-                    jwtService.extractExpiration(newAccessToken).getTime()
-            );
+            return AuthResponse.builder()
+                    .accessToken(newAccessToken)
+                    .refreshToken(refreshToken.getToken())
+                    .username(currentAuth.getName())
+                    .expiresAt(jwtService.extractExpiration(newAccessToken).getTime())
+                    .build();
         }
 
         Authentication authentication = authenticationManager.authenticate(
@@ -82,12 +82,12 @@ public class AuthService {
         String accessToken = jwtService.generateAccessToken(authentication);
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(authentication.getName());
 
-        return new AuthResponse(
-                accessToken,
-                refreshToken.getToken(),
-                authentication.getName(),
-                jwtService.extractExpiration(accessToken).getTime()
-        );
+        return AuthResponse.builder()
+                .accessToken(accessToken)
+                .refreshToken(refreshToken.getToken())
+                .username(authentication.getName())
+                .expiresAt(jwtService.extractExpiration(accessToken).getTime())
+                .build();
     }
 
     public AuthResponse refresh(String refreshTokenValue) {
@@ -104,12 +104,12 @@ public class AuthService {
 
         String newAccessToken = jwtService.generateAccessToken(authentication);
 
-        return new AuthResponse(
-                newAccessToken,
-                refreshToken.getToken(),
-                user.getUsername(),
-                jwtService.extractExpiration(newAccessToken).getTime()
-        );
+        return AuthResponse.builder()
+                .accessToken(newAccessToken)
+                .refreshToken(refreshToken.getToken())
+                .username(authentication.getName())
+                .expiresAt(jwtService.extractExpiration(newAccessToken).getTime())
+                .build();
     }
 
     public void logout(HttpServletRequest request) {

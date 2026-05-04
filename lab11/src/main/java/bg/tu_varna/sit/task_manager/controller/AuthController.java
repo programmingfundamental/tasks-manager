@@ -22,9 +22,9 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@Valid @RequestBody RegisterRequest request) {
+    public ResponseEntity<AuthResponse> register(@Valid @RequestBody RegisterRequest request) {
         authService.register(request);
-        return ResponseEntity.ok("Потребителят е регистриран успешно");
+        return ResponseEntity.ok(AuthResponse.builder().message("Register successfully!").build());
     }
 
     @PostMapping("/login")
@@ -39,8 +39,8 @@ public class AuthController {
     }
 
     @PostMapping("/logout")
-    public ResponseEntity<String> logout(HttpServletRequest request) {
+    public ResponseEntity<AuthResponse> logout(HttpServletRequest request) {
         authService.logout(request);
-        return ResponseEntity.ok("Успешен logout");
+        return ResponseEntity.ok(AuthResponse.builder().message("Log out successfully!").build());
     }
 }
