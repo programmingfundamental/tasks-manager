@@ -99,7 +99,7 @@ public class AuthService {
         Authentication authentication = new UsernamePasswordAuthenticationToken(
                 user.getUsername(),
                 null,
-                java.util.List.of(new org.springframework.security.core.authority.SimpleGrantedAuthority(user.getRole().name()))
+                java.util.List.of(new org.springframework.security.core.authority.SimpleGrantedAuthority(user.getRole().asAuthority()))
         );
 
         String newAccessToken = jwtService.generateAccessToken(authentication);

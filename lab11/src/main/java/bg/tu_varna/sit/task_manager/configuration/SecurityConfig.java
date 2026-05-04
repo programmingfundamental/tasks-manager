@@ -5,6 +5,7 @@ import bg.tu_varna.sit.task_manager.model.entity.Role;
 import bg.tu_varna.sit.task_manager.service.AppUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.*;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.*;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -36,8 +37,11 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll()
+
                         .requestMatchers("/reports/**").hasAuthority(Role.ADMIN.asAuthority())
+
                         .requestMatchers("/tasks/**").hasAnyAuthority(Role.USER.asAuthority(), Role.ADMIN.asAuthority())
+
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session ->
