@@ -12,8 +12,14 @@ services:
       dockerfile: Dockerfile
     ports:
       - 9000:9000
+#    depends_on:
+#      - db
     networks: # Добавено в лабораторно упражнение 9
       - jedi
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/tasksdb
+      SPRING_DATASOURCE_USERNAME: padawan
+      SPRING_DATASOURCE_PASSWORD: R2D2c3p0
   # Добавено в лабораторно упражнение 9
   db:
     container_name: padawan-6156-db
@@ -23,6 +29,6 @@ services:
     environment:
       POSTGRES_PASSWORD: R2D2c3p0
       POSTGRES_USER: padawan
-      POSTGRES_DB: tasks
+      POSTGRES_DB: tasksdb
     networks:
       - jedi
